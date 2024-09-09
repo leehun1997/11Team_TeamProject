@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idx: 0
+  stage: 1
+  diff: 2
   front: {fileID: 3088187467692769034}
   back: {fileID: 6018232994086693677}
   anim: {fileID: 6555387389639320167}

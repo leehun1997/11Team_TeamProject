@@ -5,6 +5,8 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public int idx = 0;
+    public int stage = 0;
+    public int diff = 0;
 
     public GameObject front;
     public GameObject back;
@@ -24,28 +26,36 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void Setting(int number)
     {
-        idx = number;
-        int type = idx / 2;
+        if (stage == 1)
+        {
+            idx = number;
+            int type = idx / 2;
 
-        if(type == 0)
-        {
-            frontImage.sprite = Resources.Load<Sprite>($"cis{idx-(type*2)+1}");
+            if (type == 0)
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"cis{idx - (type * 2) + 1}");
+            }
+            else if (type == 1)
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
+            }
+            else if (type == 2)
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
+            }
+            else if (type == 3)
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
+            }
         }
-        else if(type == 1)
+        else if (stage == 2)
         {
-            frontImage.sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
-        }
-        else if(type == 2)
-        {
-            frontImage.sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
-        }
-        else if(type == 3)
-        {
-            frontImage.sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
+            idx = number;
+            frontImage.sprite = Resources.Load<Sprite>($"Pepero{idx}");
         }
     }
 
@@ -80,7 +90,15 @@ public class Card : MonoBehaviour
     }
     public void CloseCard()
     {
-        Invoke("CloseCardInvoke", 0.5f);
+        if (diff == 1)
+        {
+            Invoke("CloseCardInvoke", 0.5f);
+        }
+        else if (diff == 2)
+        {
+            Invoke("CloseCardInvoke", 0.3f);
+        }
+
     }
     void CloseCardInvoke()
     {
