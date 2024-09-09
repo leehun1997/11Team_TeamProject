@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class RetryButton : MonoBehaviour
 {
-    public void Stagelist()
+    public GameManager gameManager;
+    public void StrageListOrRetry()
     {
-        SceneManager.LoadScene("MainScene");
-    }
-    public void Retry()
-    {
-        SceneManager.LoadScene("MainScene");
+        if (gameManager.cardCount == 0)
+        {
+            SceneManager.LoadScene("RoundChoiceScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainScene");
+        }
     }
 }
