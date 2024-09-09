@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class RetryButton : MonoBehaviour
 {
+    public void Stagelist()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
     public void Retry()
     {
         SceneManager.LoadScene("MainScene");
