@@ -793,7 +793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &554231794
 RectTransform:
   m_ObjectHideFlags: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 554231797}
   m_OnClick:
     m_PersistentCalls:
@@ -922,7 +922,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554231793}
   m_CullTransparentMesh: 1
---- !u!1 &675701623
+--- !u!1 &1060282795
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -930,8 +930,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 675701625}
-  - component: {fileID: 675701624}
+  - component: {fileID: 1060282797}
+  - component: {fileID: 1060282796}
   m_Layer: 0
   m_Name: RoundBtnManger
   m_TagString: Untagged
@@ -939,29 +939,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &675701624
+--- !u!114 &1060282796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675701623}
+  m_GameObject: {fileID: 1060282795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9698a692bd4a2434f8e50fe20a0a6c19, type: 3}
+  m_Script: {fileID: 11500000, guid: 95b445de8be367b40a0742cd8b24f250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Btn1: {fileID: 437933996}
-  Btn2: {fileID: 423483425}
-  Btn3: {fileID: 1869834914}
-  Btn4: {fileID: 1378510974}
---- !u!4 &675701625
+  roundbtn2: {fileID: 423483425}
+  roundbtn3: {fileID: 1869834914}
+  roundbtn4: {fileID: 1378510974}
+  roundbtn5: {fileID: 554231793}
+--- !u!4 &1060282797
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675701623}
+  m_GameObject: {fileID: 1060282795}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 380, y: 965, z: 0}
@@ -1307,6 +1307,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 0
   diff: 0
+  clearStage1: 0
+  clearStage2: 0
+  clearStage3: 0
+  clearStage4: 0
 --- !u!4 &1571619154
 Transform:
   m_ObjectHideFlags: 0
@@ -1625,4 +1629,4 @@ SceneRoots:
   - {fileID: 1720779623}
   - {fileID: 209629446}
   - {fileID: 1571619154}
-  - {fileID: 675701625}
+  - {fileID: 1060282797}

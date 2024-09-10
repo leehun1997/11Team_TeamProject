@@ -51,6 +51,7 @@ public class Finish : MonoBehaviour
                 memberImage2.sprite = Resources.Load<Sprite>($"cis2");
                 lovePePero1.sprite = Resources.Load<Sprite>($"Pepero4");
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero5");
+                stagemanger.GetComponent<StageManger>().clearStage1 = true;
             }
             else if (diff == 2)
             {
@@ -59,6 +60,7 @@ public class Finish : MonoBehaviour
                 memberImage2.sprite = Resources.Load<Sprite>($"seo2");
                 lovePePero1.sprite = Resources.Load<Sprite>($"Pepero3");
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero7");
+                stagemanger.GetComponent<StageManger>().clearStage2 = true;
             }
         }
         else if (stage == 2)
@@ -70,6 +72,7 @@ public class Finish : MonoBehaviour
                 memberImage2.sprite = Resources.Load<Sprite>($"KiHyeok2");
                 lovePePero1.sprite = Resources.Load<Sprite>($"Pepero2");
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero6");
+                stagemanger.GetComponent<StageManger>().clearStage3 = true;
             }
             else if (diff == 2)
             {
@@ -78,6 +81,7 @@ public class Finish : MonoBehaviour
                 memberImage2.sprite = Resources.Load<Sprite>($"LeeHun2");
                 lovePePero1.sprite = Resources.Load<Sprite>($"Pepero0");
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero1");
+                stagemanger.GetComponent<StageManger>().clearStage4 = true;
             }
         }
     }

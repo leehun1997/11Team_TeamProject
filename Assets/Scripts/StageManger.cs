@@ -10,6 +10,11 @@ public class StageManger : MonoBehaviour
     public int stage;
     public int diff;
 
+    public bool clearStage1 = false;
+    public bool clearStage2 = false;
+    public bool clearStage3 = false;
+    public bool clearStage4 = false;
+
     private void Awake()
     {
         if (instance == null)
