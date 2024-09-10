@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    GameObject stagemanger;
     public static GameManager Instance;
     public Board board;//수정한 줄
     public Card firstCard;
     public Card secondCard;
+    int stage;
+    int diff;
 
     float time = 0.0f;
 
@@ -31,6 +34,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stagemanger = GameObject.Find("StageManger");
+        stage = stagemanger.GetComponent<StageManger>().stage;
+        diff = stagemanger.GetComponent<StageManger>().diff;
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
     }
@@ -65,7 +71,10 @@ public class GameManager : MonoBehaviour
         {
             firstCard.CloseCard();
             secondCard.CloseCard();
-            failCount += 1;//수정한 줄~
+            if (diff == 2)
+            {
+                failCount += 1;
+            }
             if (failCount == 5)
             {
                 StartCoroutine(WaitForShuffle(0.5f));
