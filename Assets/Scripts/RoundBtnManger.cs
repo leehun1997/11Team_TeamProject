@@ -36,7 +36,7 @@ public class RoundBtnManger : MonoBehaviour
         }
         if (stagemanger.GetComponent<StageManger>().clearStage4 == true)
         {
-            roundbtn5.GetComponent<GameObject>().SetActive(true);
+            roundbtn5.SetActive(true);
         }
     }
 }
