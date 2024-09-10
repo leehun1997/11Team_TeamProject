@@ -39,6 +39,7 @@ public class Finish : MonoBehaviour
     }
     public void ServiceView()
     {
+        Debug.Log("ddd");
         stagemanger = GameObject.Find("StageManger");
         stage = stagemanger.GetComponent<StageManger>().stage;
         diff = stagemanger.GetComponent<StageManger>().diff;
@@ -83,6 +84,13 @@ public class Finish : MonoBehaviour
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero1");
                 stagemanger.GetComponent<StageManger>().clearStage4 = true;
             }
+        }else if (stage==3)
+        {
+            MemberNameTxt.text = "Perfect!";
+            memberImage1.sprite = Resources.Load<Sprite>($"LeeHun2");
+            memberImage2.sprite = Resources.Load<Sprite>($"KiHyeok1");
+            lovePePero1.sprite = Resources.Load<Sprite>($"seo2");
+            lovePePero2.sprite = Resources.Load<Sprite>($"cis2");
         }
     }
 }
