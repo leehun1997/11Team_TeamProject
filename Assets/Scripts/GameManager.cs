@@ -6,20 +6,21 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public Board board;//수정한 줄
     public Card firstCard;
     public Card secondCard;
 
     float time = 0.0f;
 
     public Text timeTxt;
-    public GameObject endTxt;
+    public GameObject image;
+    public Finish finishUi;
 
     AudioSource audioSource;
     public AudioClip clip;
 
     public int cardCount = 0;
-
+    public int failCount = 0;
     private void Awake()
     {
         if(Instance == null)
@@ -56,13 +57,20 @@ public class GameManager : MonoBehaviour
             if(cardCount==0 )
             {
                 Time.timeScale = 0.0f;
-                endTxt.SetActive(true);
+                finishUi.gameClear();
+                image.SetActive(true);
             }
         }
         else
         {
             firstCard.CloseCard();
             secondCard.CloseCard();
+            failCount += 1;//수정한 줄~
+            if (failCount == 5)
+            {
+                StartCoroutine(WaitForShuffle(0.5f));
+                failCount = 0;
+            }//~수정한 줄
         }
         firstCard = null;
         secondCard = null;
@@ -70,6 +78,12 @@ public class GameManager : MonoBehaviour
     public void GameOut()
     {
         Time.timeScale = 0.0f;
-        endTxt.SetActive(true);
+        finishUi.gameFail();
+        image.SetActive(true);
     }
+    IEnumerator WaitForShuffle(float delayTime)//수정한 줄~
+    {
+        yield return new WaitForSeconds(delayTime);
+        board.Shuffle();
+    }//~수정한 줄
 }

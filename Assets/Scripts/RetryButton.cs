@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class RetryButton : MonoBehaviour
 {
-    int stage;
-    int diff;
-    public void Retry()
+    public GameManager gameManager;
+    public void StrageListOrRetry()
     {
-        SceneManager.LoadScene("MainScene");
-    }
-
-    public void Question(int stage, int diff)
-    {
-
+        if (gameManager.cardCount == 0)
+        {
+            SceneManager.LoadScene("RoundChoiceScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainScene");
+        }
     }
 }
