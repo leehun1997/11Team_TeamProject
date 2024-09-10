@@ -5,11 +5,11 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public int idx = 0;
-    public int stage = 0;
-    public int diff = 0;
+    int stage, diff;
 
     public GameObject front;
     public GameObject back;
+    GameObject stagemanger;
 
     public Animator anim;
 
@@ -30,6 +30,9 @@ public class Card : MonoBehaviour
     }
     public void Setting(int number)
     {
+        stagemanger = GameObject.Find("StageManger");
+        stage = stagemanger.GetComponent<StageManger>().stage;
+        diff = stagemanger.GetComponent<StageManger>().diff;
         if (stage == 1)
         {
             idx = number;
