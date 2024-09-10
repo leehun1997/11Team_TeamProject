@@ -22,4 +22,9 @@ public class RetryButton : MonoBehaviour
     {
         SceneManager.LoadScene("RoundChoiceScene");
     }
+
+    public void RoundScene()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
 }
