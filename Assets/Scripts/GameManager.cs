@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     float time = 0.0f;
 
     public Text timeTxt;
-    public GameObject image;
+    public GameObject endingUI1;
+    public GameObject endingUI2;
     public Finish finishUi;
 
     AudioSource audioSource;
@@ -65,7 +66,9 @@ public class GameManager : MonoBehaviour
                 {
                     Time.timeScale = 0.0f;
                     finishUi.gameClear();
-                    image.SetActive(true);
+                    finishUi.ServiceView();
+                    endingUI1.SetActive(true);
+                    endingUI2.SetActive(true);
                 }
             }
             else
@@ -94,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         finishUi.gameFail();
-        image.SetActive(true);
+        endingUI1.SetActive(true);
     }
     public void HiddenMatch()
     {
@@ -109,7 +112,8 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0.0f;
                 finishUi.gameClear();
                 finishUi.ServiceView();
-                image.SetActive(true);
+                endingUI1.SetActive(true);
+                endingUI2.SetActive(true);
             }
         }
         else
