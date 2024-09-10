@@ -7,22 +7,13 @@ using UnityEngine.UI;
 
 public class RetryButton : MonoBehaviour
 {
-    public GameManager gameManager;
-
     public GameObject stageManger;
     
-    public void StrageListOrRetry()
+    public void MainScene()
     {
-        if (gameManager.cardCount == 0)
-        {
-            SceneManager.LoadScene("RoundChoiceScene");
-        }
-        else
-        {
-            SceneManager.LoadScene("MainScene");
-        }
+        SceneManager.LoadScene("MainScene");
     }
-    public void StartScene()
+    public void StageScene()
     {
         SceneManager.LoadScene("RoundChoiceScene");
     }

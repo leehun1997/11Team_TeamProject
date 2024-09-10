@@ -9,9 +9,13 @@ public class Board : MonoBehaviour
     int diff;
     public GameObject card;
     public GameObject[] cardList;//수정한 줄
+
+    AudioSource audioSource;
+    public AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         cardList = new GameObject[16];//수정한 줄
         int[] arr=new int[16];
         if (StageManger.instance.stage != 3)
@@ -38,7 +42,7 @@ public class Board : MonoBehaviour
     }
     public void Shuffle()//수정한 줄~
     {
-
+        audioSource.PlayOneShot(clip);
         int[] arr = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
         arr = arr.OrderBy(x => Random.Range(0, 15)).ToArray();
         for (int i = 0; i < 16; i++)
