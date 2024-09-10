@@ -34,7 +34,7 @@ public class Board : MonoBehaviour
                 float x = (i % 4) * 1.4f - 2.1f;
                 float y = (i / 4) * 1.4f - 3.0f;
 
-                go.transform.position = new Vector2(x, y);
+                go.transform.position = new Vector3(x, y,-1f);
                 go.GetComponent<Card>().Setting(arr[i]);
                 cardList[i] = go;//수정한 줄
             }
@@ -51,7 +51,7 @@ public class Board : MonoBehaviour
             float x = (i % 4) * 1.4f - 2.1f;//-2.1,-0.7,+0.7,2.1
             float y = (i / 4) * 1.4f - 3.0f;//-3.0,-1.6,-0.2,1.2
 
-            if(cardList[arr[i]]!=null)cardList[arr[i]].transform.position = new Vector2(x, y);
+            if(cardList[arr[i]]!=null)cardList[arr[i]].transform.position = new Vector3(x, y, -1f);
         }
         
     }//~수정한 줄
