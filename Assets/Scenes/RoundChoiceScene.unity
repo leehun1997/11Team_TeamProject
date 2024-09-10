@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  stageManger: {fileID: 0}
+  stageManger: {fileID: 1571619152}
 --- !u!114 &554231796
 MonoBehaviour:
   m_ObjectHideFlags: 0
