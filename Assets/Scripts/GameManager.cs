@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = 0.0f;
                 finishUi.gameClear();
+                finishUi.ServiceView();
                 image.SetActive(true);
             }
         }
