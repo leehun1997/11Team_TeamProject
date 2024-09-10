@@ -60,6 +60,32 @@ public class Card : MonoBehaviour
             idx = number;
             frontImage.sprite = Resources.Load<Sprite>($"Pepero{idx}");
         }
+        else if (stage == 3)//hiden stage
+        {
+            idx = number;
+            int type = idx / 2;
+
+            if (type == 0)
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"cis{idx - (type * 2) + 1}");
+            }
+            else if (type == 1)
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
+            }
+            else if (type == 2)
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
+            }
+            else if (type == 3)
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
+            }
+            else
+            {
+                frontImage.sprite = Resources.Load<Sprite>($"Pepero{idx-8}");
+            }
+        }
     }
 
     public void OpenCard()
