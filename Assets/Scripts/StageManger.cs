@@ -20,6 +20,6 @@ public class StageManger : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-    }    
+        }        
+    }
 }
