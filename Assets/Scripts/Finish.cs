@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Finish : MonoBehaviour
 {
     public Text finishTxt;
-    public Text finishBtn;
 
     int stage, diff;
     GameObject stagemanger;
@@ -30,12 +29,10 @@ public class Finish : MonoBehaviour
     public void gameClear()
     {
         finishTxt.text = "Clear";
-        finishBtn.text = "StageList";
     }
     public void gameFail()
     {
         finishTxt.text = "Fail";
-        finishBtn.text = "Retry?";
     }
     public void ServiceView()
     {
