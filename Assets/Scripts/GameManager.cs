@@ -54,13 +54,57 @@ public class GameManager : MonoBehaviour
     }
     public void Matched()
     {
-        if(firstCard.idx == secondCard.idx)
+        if (stage != 3) { 
+            if(firstCard.idx == secondCard.idx)
+            {
+                audioSource.PlayOneShot(clip);
+                firstCard.DestroyCard();
+                secondCard.DestroyCard();
+                cardCount -= 2;
+                if(cardCount==0 )
+                {
+                    Time.timeScale = 0.0f;
+                    finishUi.gameClear();
+                    image.SetActive(true);
+                }
+            }
+            else
+            {
+                firstCard.CloseCard();
+                secondCard.CloseCard();
+                    if (diff == 2)
+                {
+                    failCount += 1;
+                }
+                if (failCount == 5)
+                {
+                    StartCoroutine(WaitForShuffle(0.5f));
+                    failCount = 0;
+                }//~수정한 줄
+            }
+        firstCard = null;
+        secondCard = null;
+        }
+        else if (stage == 3)
+        {
+            HiddenMatch();
+        }
+    }
+    public void GameOut()
+    {
+        Time.timeScale = 0.0f;
+        finishUi.gameFail();
+        image.SetActive(true);
+    }
+    public void HiddenMatch()
+    {
+        if (HiddenMatchResult())
         {
             audioSource.PlayOneShot(clip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
-            if(cardCount==0 )
+            if (cardCount == 0)
             {
                 Time.timeScale = 0.0f;
                 finishUi.gameClear();
@@ -84,11 +128,41 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
     }
-    public void GameOut()
+    public bool HiddenMatchResult()
     {
-        Time.timeScale = 0.0f;
-        finishUi.gameFail();
-        image.SetActive(true);
+        if (firstCard.idx == 0||firstCard.idx==1)//cis,kihyeok,leehun,seo 순서
+        {
+            if (secondCard.idx ==12||secondCard.idx==13) { return true; }
+        }
+        if (firstCard.idx == 2 || firstCard.idx == 3)
+        {
+            if (secondCard.idx ==10|| secondCard.idx ==14) { return true; }
+        }
+        if (firstCard.idx == 4 || firstCard.idx == 5)
+        {
+            if (secondCard.idx ==8|| secondCard.idx ==9) { return true; }
+        }
+        if (firstCard.idx == 6 || firstCard.idx == 7)
+        {
+            if (secondCard.idx ==11|| secondCard.idx ==15) { return true; }
+        }
+        if (firstCard.idx == 12 || firstCard.idx == 13)
+        {
+            if (secondCard.idx ==0|| secondCard.idx ==1) { return true; }
+        }
+        if (firstCard.idx == 10 || firstCard.idx == 14)
+        {
+            if (secondCard.idx ==2|| secondCard.idx ==3) { return true; }
+        }
+        if (firstCard.idx == 8 || firstCard.idx == 9)
+        {
+            if (secondCard.idx ==4|| secondCard.idx ==5) { return true; }
+        }
+        if (firstCard.idx == 11 || firstCard.idx == 15)
+        {
+            if (secondCard.idx ==6|| secondCard.idx ==7) { return true; }
+        }
+        return false;
     }
     IEnumerator WaitForShuffle(float delayTime)//수정한 줄~
     {
