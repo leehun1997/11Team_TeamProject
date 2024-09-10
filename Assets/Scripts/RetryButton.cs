@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RetryButton : MonoBehaviour
 {
@@ -16,5 +17,9 @@ public class RetryButton : MonoBehaviour
         {
             SceneManager.LoadScene("MainScene");
         }
+    }
+    public void StartScene()
+    {
+        SceneManager.LoadScene("RoundChoiceScene");
     }
 }
