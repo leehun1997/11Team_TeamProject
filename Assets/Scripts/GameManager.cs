@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public Board board;//수정한 줄
     public Card firstCard;
     public Card secondCard;
 
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public AudioClip clip;
 
     public int cardCount = 0;
-
+    public int failCount = 0;
     private void Awake()
     {
         if(Instance == null)
@@ -65,6 +65,12 @@ public class GameManager : MonoBehaviour
         {
             firstCard.CloseCard();
             secondCard.CloseCard();
+            failCount += 1;//수정한 줄~
+            if (failCount == 5)
+            {
+                StartCoroutine(WaitForShuffle(0.5f));
+                failCount = 0;
+            }//~수정한 줄
         }
         firstCard = null;
         secondCard = null;
@@ -75,4 +81,9 @@ public class GameManager : MonoBehaviour
         finishUi.gameFail();
         image.SetActive(true);
     }
+    IEnumerator WaitForShuffle(float delayTime)//수정한 줄~
+    {
+        yield return new WaitForSeconds(delayTime);
+        board.Shuffle();
+    }//~수정한 줄
 }
