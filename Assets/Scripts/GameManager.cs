@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     float time = 0.0f;
 
     public Text timeTxt;
-    public GameObject endTxt;
+    public GameObject image;
+    public Finish finishUi;
 
     AudioSource audioSource;
     public AudioClip clip;
@@ -56,7 +57,8 @@ public class GameManager : MonoBehaviour
             if(cardCount==0 )
             {
                 Time.timeScale = 0.0f;
-                endTxt.SetActive(true);
+                finishUi.gameClear();
+                image.SetActive(true);
             }
         }
         else
@@ -76,7 +78,8 @@ public class GameManager : MonoBehaviour
     public void GameOut()
     {
         Time.timeScale = 0.0f;
-        endTxt.SetActive(true);
+        finishUi.gameFail();
+        image.SetActive(true);
     }
     IEnumerator WaitForShuffle(float delayTime)//수정한 줄~
     {
