@@ -50,6 +50,11 @@ public class RetryButton : MonoBehaviour
             stageManger.GetComponent<StageManger>().stage = 2;
             stageManger.GetComponent<StageManger>().diff = 2;
         }
+        else if (this.gameObject.name == "5RoundButton")
+        {
+            stageManger.GetComponent<StageManger>().stage = 3;
+            stageManger.GetComponent<StageManger>().diff = 1;
+        }
         SceneManager.LoadScene("MainScene");
     }
 }
