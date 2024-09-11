@@ -16,6 +16,8 @@ public class Card : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip clip;
+    public Animator open1;
+    public Animator open2;
 
     // Start is called before the first frame update
     void Start()
