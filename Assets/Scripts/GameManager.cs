@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
     public TimeBar timeBar;
+    public GameObject stopBtn;
     int stage;
     int diff;
 
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
                 {
                     Time.timeScale = 0.0f;
                     timeBar.gameObject.SetActive(false);
+                    stopBtn.gameObject.SetActive(false);
                     finishUi.gameClear();
                     finishUi.ServiceView();
                     endingUI1.SetActive(true);
@@ -102,6 +104,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         timeBar.gameObject.SetActive(false);
+        stopBtn.gameObject.SetActive(false);
         finishUi.gameFail();
         endingUI1.SetActive(true);
     }
@@ -117,6 +120,7 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = 0.0f;
                 timeBar.gameObject.SetActive(false);
+                stopBtn.gameObject.SetActive(false);
                 finishUi.gameClear();
                 finishUi.ServiceView();
                 endingUI1.SetActive(true);
