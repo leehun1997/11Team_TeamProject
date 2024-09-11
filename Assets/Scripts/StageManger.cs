@@ -9,6 +9,7 @@ public class StageManger : MonoBehaviour
     public static StageManger instance;
     public int stage;
     public int diff;
+    public int maxStage =- 1;
 
     public bool clearStage1 = false;
     public bool clearStage2 = false;

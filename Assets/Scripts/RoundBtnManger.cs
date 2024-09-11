@@ -14,6 +14,10 @@ public class RoundBtnManger : MonoBehaviour
     public GameObject roundbtn5;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        stagemanger = GameObject.Find("StageManger");
+    }
     void Start()
     {
         
@@ -22,16 +26,14 @@ public class RoundBtnManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stagemanger = GameObject.Find("StageManger");
+        enabled_BtnCheck();
         if (stagemanger.GetComponent<StageManger>().clearStage1 == true)
-        {
-            roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
+        {            
             roundbtn2.GetComponent<Button>().interactable = true;
             roundbtn2.transform.GetChild(1).GetComponent<Animator>().SetBool("clearStage1", true);
         }
         if (stagemanger.GetComponent<StageManger>().clearStage2 == true)
-        {
-            roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
+        {            
             roundbtn3.GetComponent<Button>().interactable = true;
             roundbtn3.transform.GetChild(1).GetComponent<Animator>().SetBool("clearStage2", true);
         }
@@ -45,6 +47,30 @@ public class RoundBtnManger : MonoBehaviour
         {
             roundbtn4.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn5.SetActive(true);
+        }
+    }
+    void enabled_BtnCheck() 
+    {     
+        if(stagemanger.GetComponent<StageManger>().maxStage == 3){
+            roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            roundbtn3.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            roundbtn4.transform.GetChild(1).GetComponent<Image>().enabled = false;
+        }
+        else if (stagemanger.GetComponent<StageManger>().maxStage == 2)
+        {
+            roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            roundbtn3.transform.GetChild(1).GetComponent<Image>().enabled = false;
+        }
+        else if (stagemanger.GetComponent<StageManger>().maxStage == 1)
+        {
+            roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
+        }
+        else if (stagemanger.GetComponent<StageManger>().maxStage == 0)
+        {
+            roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
         }
     }
 }
