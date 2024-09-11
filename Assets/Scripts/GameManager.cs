@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Board board;//수정한 줄
     public Card firstCard;
-    public Card secondCard;
+    public Card secondCard;    
     public TimeBar timeBar;
     public GameObject stopBtn;
     int stage;

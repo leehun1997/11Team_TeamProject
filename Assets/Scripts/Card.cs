@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class Card : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clip;
 
-    public SpriteRenderer frontImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,25 +40,25 @@ public class Card : MonoBehaviour
 
             if (type == 0)
             {
-                frontImage.sprite = Resources.Load<Sprite>($"cis{idx - (type * 2) + 1}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"cis{idx - (type * 2) + 1}");
             }
             else if (type == 1)
             {
-                frontImage.sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
             }
             else if (type == 2)
             {
-                frontImage.sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
             }
             else if (type == 3)
             {
-                frontImage.sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
             }
         }
         else if (stage == 2)
         {
             idx = number;
-            frontImage.sprite = Resources.Load<Sprite>($"Pepero{idx}");
+            front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Pepero{idx}");
         }
         else if (stage == 3)//hiden stage
         {
@@ -67,23 +67,23 @@ public class Card : MonoBehaviour
 
             if (type == 0)
             {
-                frontImage.sprite = Resources.Load<Sprite>($"cis{idx - (type * 2) + 1}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"cis{idx - (type * 2) + 1}");
             }
             else if (type == 1)
             {
-                frontImage.sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
             }
             else if (type == 2)
             {
-                frontImage.sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
             }
             else if (type == 3)
             {
-                frontImage.sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
             }
             else
             {
-                frontImage.sprite = Resources.Load<Sprite>($"Pepero{idx-8}");
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Pepero{idx-8}");
             }
         }
     }

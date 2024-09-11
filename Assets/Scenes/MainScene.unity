@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b4678a66618f604d9c8c94d1cf37e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2091637325058199931, guid: da77acf2344c9ef429b8f606287e7dda, type: 3}
+  card: {fileID: 1811756552041119445, guid: a002e34f2035ad54aa4edadcf64281f8, type: 3}
   cardList: []
   shuffleImage: {fileID: 730531557}
   clip: {fileID: 8300000, guid: a5c7c586cb0bd60498d47d745f5cc977, type: 3}
