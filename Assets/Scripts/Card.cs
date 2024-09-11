@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Card : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clip;
 
-    public SpriteRenderer frontImage;
+    public Image frontImage;
     // Start is called before the first frame update
     void Start()
     {
