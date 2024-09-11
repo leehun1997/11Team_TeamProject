@@ -39,13 +39,11 @@ public class RoundBtnManger : MonoBehaviour
         }
         if (stagemanger.GetComponent<StageManger>().clearStage3 == true)
         {
-            roundbtn3.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn4.GetComponent<Button>().interactable = true;
             roundbtn4.transform.GetChild(1).GetComponent<Animator>().SetBool("clearStage3", true);
         }
         if (stagemanger.GetComponent<StageManger>().clearStage4 == true)
         {
-            roundbtn4.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn5.SetActive(true);
         }
     }
