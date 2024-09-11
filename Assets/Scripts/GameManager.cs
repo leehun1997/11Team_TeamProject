@@ -10,10 +10,11 @@ public class GameManager : MonoBehaviour
     public Board board;//수정한 줄
     public Card firstCard;
     public Card secondCard;
+    public TimeBar timeBar;
     int stage;
     int diff;
 
-    float time = 0.0f;
+    public float time;
 
     public Text timeTxt;
     public GameObject endingUI1;
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeBar.gameObject.SetActive(true);
+        time = 30.0f;
         stagemanger = GameObject.Find("StageManger");
         stage = stagemanger.GetComponent<StageManger>().stage;
         diff = stagemanger.GetComponent<StageManger>().diff;
@@ -45,10 +48,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        time -= Time.deltaTime;
+        timeBar.SetGauge(0, 30, time);
         timeTxt.text = time.ToString("N2");
 
-        if (time > 30f)
+        if (time < 0f)
         {
             GameOut();
         }
@@ -65,6 +69,7 @@ public class GameManager : MonoBehaviour
                 if(cardCount==0 )
                 {
                     Time.timeScale = 0.0f;
+                    timeBar.gameObject.SetActive(false);
                     finishUi.gameClear();
                     finishUi.ServiceView();
                     endingUI1.SetActive(true);
@@ -96,6 +101,7 @@ public class GameManager : MonoBehaviour
     public void GameOut()
     {
         Time.timeScale = 0.0f;
+        timeBar.gameObject.SetActive(false);
         finishUi.gameFail();
         endingUI1.SetActive(true);
     }
@@ -110,6 +116,7 @@ public class GameManager : MonoBehaviour
             if (cardCount == 0)
             {
                 Time.timeScale = 0.0f;
+                timeBar.gameObject.SetActive(false);
                 finishUi.gameClear();
                 finishUi.ServiceView();
                 endingUI1.SetActive(true);
