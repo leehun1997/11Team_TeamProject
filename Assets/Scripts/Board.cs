@@ -9,7 +9,7 @@ public class Board : MonoBehaviour
     int diff;
     public GameObject card;
     public GameObject[] cardList;//수정한 줄
-
+    public GameObject shuffleImage;
     AudioSource audioSource;
     public AudioClip clip;
     // Start is called before the first frame update
@@ -40,8 +40,10 @@ public class Board : MonoBehaviour
             }
             GameManager.Instance.cardCount = arr.Length;
     }
-    public void Shuffle()//수정한 줄~
+    public void Shuffle()
     {
+        Time.timeScale = 0.0f;
+        shuffleImage.SetActive(true);
         audioSource.PlayOneShot(clip);
         int[] arr = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
         arr = arr.OrderBy(x => Random.Range(0, 15)).ToArray();
@@ -53,6 +55,13 @@ public class Board : MonoBehaviour
 
             if(cardList[arr[i]]!=null)cardList[arr[i]].transform.position = new Vector3(x, y, -1f);
         }
+        StartCoroutine(WaitFor(0.5f));
         
-    }//~수정한 줄
+    }
+    IEnumerator WaitFor(float delayTime)
+    {
+        yield return new WaitForSecondsRealtime(delayTime);
+        Time.timeScale = 1.0f;
+        shuffleImage.SetActive(false);
+    }
 }
