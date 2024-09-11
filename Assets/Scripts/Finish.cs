@@ -36,7 +36,6 @@ public class Finish : MonoBehaviour
     }
     public void ServiceView()
     {
-        Debug.Log("ddd");
         stagemanger = GameObject.Find("StageManger");
         stage = stagemanger.GetComponent<StageManger>().stage;
         diff = stagemanger.GetComponent<StageManger>().diff;
