@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
     public int idx = 0;
+    int stage, diff;
 
     public GameObject front;
     public GameObject back;
+    GameObject stagemanger;
 
     public Animator anim;
 
     AudioSource audioSource;
     public AudioClip clip;
+    public Animator open1;
+    public Animator open2;
 
-    public SpriteRenderer frontImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,28 +28,65 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void Setting(int number)
     {
-        idx = number;
-        int type = idx / 2;
+        stagemanger = GameObject.Find("StageManger");
+        stage = stagemanger.GetComponent<StageManger>().stage;
+        diff = stagemanger.GetComponent<StageManger>().diff;
+        if (stage == 1)
+        {
+            idx = number;
+            int type = idx / 2;
 
-        if(type == 0)
-        {
-            frontImage.sprite = Resources.Load<Sprite>($"cis{idx-(type*2)+1}");
+            if (type == 0)
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"cis{idx - (type * 2) + 1}");
+            }
+            else if (type == 1)
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
+            }
+            else if (type == 2)
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
+            }
+            else if (type == 3)
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
+            }
         }
-        else if(type == 1)
+        else if (stage == 2)
         {
-            frontImage.sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
+            idx = number;
+            front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Pepero{idx}");
         }
-        else if(type == 2)
+        else if (stage == 3)//hiden stage
         {
-            frontImage.sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
-        }
-        else if(type == 3)
-        {
-            frontImage.sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
+            idx = number;
+            int type = idx / 2;
+
+            if (type == 0)
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"cis{idx - (type * 2) + 1}");
+            }
+            else if (type == 1)
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"KiHyeok{idx - (type * 2) + 1}");
+            }
+            else if (type == 2)
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"LeeHun{idx - (type * 2) + 1}");
+            }
+            else if (type == 3)
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"seo{idx - (type * 2) + 1}");
+            }
+            else
+            {
+                front.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Pepero{idx-8}");
+            }
         }
     }
 
@@ -74,13 +115,21 @@ public class Card : MonoBehaviour
     {
         Invoke("DestroyCardInvoke", 1.0f);
     }
-    void DestroyCardInvoke()
+    public void DestroyCardInvoke()
     {
         Destroy(gameObject);
     }
     public void CloseCard()
     {
-        Invoke("CloseCardInvoke", 0.5f);
+        if (diff == 1)
+        {
+            Invoke("CloseCardInvoke", 0.5f);
+        }
+        else if (diff == 2)
+        {
+            Invoke("CloseCardInvoke", 0.3f);
+        }
+
     }
     void CloseCardInvoke()
     {
