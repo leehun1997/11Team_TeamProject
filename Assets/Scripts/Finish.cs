@@ -48,7 +48,10 @@ public class Finish : MonoBehaviour
                 memberImage2.sprite = Resources.Load<Sprite>($"cis2");
                 lovePePero1.sprite = Resources.Load<Sprite>($"Pepero4");
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero5");
-                stagemanger.GetComponent<StageManger>().clearStage1 = true;
+                if (PlayerPrefs.GetInt("clearStage")<1)
+                {
+                    PlayerPrefs.SetInt("clearStage", 1);
+                }
             }
             else if (diff == 2)
             {
@@ -57,7 +60,10 @@ public class Finish : MonoBehaviour
                 memberImage2.sprite = Resources.Load<Sprite>($"seo2");
                 lovePePero1.sprite = Resources.Load<Sprite>($"Pepero3");
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero7");
-                stagemanger.GetComponent<StageManger>().clearStage2 = true;
+                if (PlayerPrefs.GetInt("clearStage") < 2)
+                {
+                    PlayerPrefs.SetInt("clearStage", 2);
+                }
             }
         }
         else if (stage == 2)
@@ -69,7 +75,10 @@ public class Finish : MonoBehaviour
                 memberImage2.sprite = Resources.Load<Sprite>($"KiHyeok2");
                 lovePePero1.sprite = Resources.Load<Sprite>($"Pepero2");
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero6");
-                stagemanger.GetComponent<StageManger>().clearStage3 = true;
+                if (PlayerPrefs.GetInt("clearStage") < 3)
+                {
+                    PlayerPrefs.SetInt("clearStage", 3);
+                }
             }
             else if (diff == 2)
             {
@@ -78,7 +87,10 @@ public class Finish : MonoBehaviour
                 memberImage2.sprite = Resources.Load<Sprite>($"LeeHun2");
                 lovePePero1.sprite = Resources.Load<Sprite>($"Pepero0");
                 lovePePero2.sprite = Resources.Load<Sprite>($"Pepero1");
-                stagemanger.GetComponent<StageManger>().clearStage4 = true;
+                if (PlayerPrefs.GetInt("clearStage") < 4)
+                {
+                    PlayerPrefs.SetInt("clearStage", 4);
+                }
             }
         }else if (stage==3)
         {
@@ -87,7 +99,10 @@ public class Finish : MonoBehaviour
             memberImage2.sprite = Resources.Load<Sprite>($"KiHyeok1");
             lovePePero1.sprite = Resources.Load<Sprite>($"seo2");
             lovePePero2.sprite = Resources.Load<Sprite>($"cis2");
-            stagemanger.GetComponent<StageManger>().clearHidenStage = true;
+            if (PlayerPrefs.GetInt("clearStage") < 5)
+            {
+                PlayerPrefs.SetInt("clearStage", 5);
+            }
         }
     }
 }
