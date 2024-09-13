@@ -22,8 +22,9 @@ public class StageManger : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            PlayerPrefs.DeleteAll();
             if (!PlayerPrefs.HasKey("maxStage"))
-            {
+            {                
                 PlayerPrefs.SetInt("maxStage", -1);
             }
             else
