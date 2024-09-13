@@ -45,11 +45,15 @@ public class RoundBtnManger : MonoBehaviour
         if (stagemanger.GetComponent<StageManger>().clearStage4 == true)
         {
             roundbtn5.SetActive(true);
+            if (stagemanger.GetComponent<StageManger>().maxStage == 3)
+            {
+                roundbtn5.GetComponent<Animator>().SetBool("clearStage4", true);
+            }
         }
     }
     void enabled_BtnCheck() 
     {     
-        if(stagemanger.GetComponent<StageManger>().maxStage == 3){
+        if(stagemanger.GetComponent<StageManger>().maxStage == 3){            
             roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn3.transform.GetChild(1).GetComponent<Image>().enabled = false;
@@ -66,7 +70,7 @@ public class RoundBtnManger : MonoBehaviour
             roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
         }
-        else if (stagemanger.GetComponent<StageManger>().maxStage == 0)
+        else if (stagemanger.GetComponent<StageManger>().maxStage == 0) //처음으로 라운드1을 눌렀을 때
         {
             roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
         }

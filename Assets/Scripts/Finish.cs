@@ -87,6 +87,7 @@ public class Finish : MonoBehaviour
             memberImage2.sprite = Resources.Load<Sprite>($"KiHyeok1");
             lovePePero1.sprite = Resources.Load<Sprite>($"seo2");
             lovePePero2.sprite = Resources.Load<Sprite>($"cis2");
+            stagemanger.GetComponent<StageManger>().clearHidenStage = true;
         }
     }
 }

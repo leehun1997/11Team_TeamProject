@@ -15,6 +15,7 @@ public class StageManger : MonoBehaviour
     public bool clearStage2 = false;
     public bool clearStage3 = false;
     public bool clearStage4 = false;
+    public bool clearHidenStage = false;
 
     private void Awake()
     {

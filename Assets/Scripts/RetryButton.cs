@@ -58,6 +58,10 @@ public class RetryButton : MonoBehaviour
         {
             stageManger.GetComponent<StageManger>().stage = 3;
             stageManger.GetComponent<StageManger>().diff = 1;
+            if (stageManger.GetComponent<StageManger>().maxStage < 4)
+            {
+                stageManger.GetComponent<StageManger>().maxStage = 4;
+            }
         }
         SceneManager.LoadScene("MainScene");
     }
