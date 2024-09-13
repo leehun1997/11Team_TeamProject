@@ -45,28 +45,32 @@ public class RoundBtnManger : MonoBehaviour
         if (stagemanger.GetComponent<StageManger>().clearStage4 == true)
         {
             roundbtn5.SetActive(true);
+            if (PlayerPrefs.GetInt("maxStage") == 3)
+            {
+                roundbtn5.GetComponent<Animator>().SetBool("clearStage4", true);
+            }
         }
     }
     void enabled_BtnCheck() 
     {     
-        if(stagemanger.GetComponent<StageManger>().maxStage == 3){
+        if(PlayerPrefs.GetInt("maxStage") == 3){            
             roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn3.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn4.transform.GetChild(1).GetComponent<Image>().enabled = false;
         }
-        else if (stagemanger.GetComponent<StageManger>().maxStage == 2)
+        else if (PlayerPrefs.GetInt("maxStage") == 2)
         {
             roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn3.transform.GetChild(1).GetComponent<Image>().enabled = false;
         }
-        else if (stagemanger.GetComponent<StageManger>().maxStage == 1)
+        else if (PlayerPrefs.GetInt("maxStage") == 1)
         {
             roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
             roundbtn2.transform.GetChild(1).GetComponent<Image>().enabled = false;
         }
-        else if (stagemanger.GetComponent<StageManger>().maxStage == 0)
+        else if (PlayerPrefs.GetInt("maxStage") == 0) //처음으로 라운드1을 눌렀을 때
         {
             roundbtn1.transform.GetChild(1).GetComponent<Image>().enabled = false;
         }

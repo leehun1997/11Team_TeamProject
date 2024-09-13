@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    StageManger stageManger;
     AudioSource audioSource;
     public AudioClip clip;
 
@@ -13,6 +14,7 @@ public class AudioManager : MonoBehaviour
     {
         if (instance == null)
         {
+            stageManger = GameObject.Find("StageManger").GetComponent<StageManger>();
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -24,9 +26,8 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = this.clip;
         audioSource.Play();
-    }
+    }    
 }
