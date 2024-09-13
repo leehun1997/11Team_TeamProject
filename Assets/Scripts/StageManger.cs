@@ -9,6 +9,7 @@ public class StageManger : MonoBehaviour
     public static StageManger instance;
     public int stage;
     public int diff;
+    public int maxStage =- 1;
 
     public bool clearStage1 = false;
     public bool clearStage2 = false;
@@ -22,34 +23,6 @@ public class StageManger : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            if (!PlayerPrefs.HasKey("maxStage"))
-            {
-                PlayerPrefs.SetInt("maxStage", -1);
-            }
-            else
-            {
-                for (int i = 0; i < PlayerPrefs.GetInt("maxStage"); i++)
-                {
-                    string name = $"clearStage{i+1}";
-                    if (name == "clearStage1")
-                    {
-                        clearStage1 = true;
-                    }
-                    else if(name == "clearStage2")
-                    {
-                        clearStage2 = true;
-                    }
-                    else if (name == "clearStage3")
-                    {
-                        clearStage3 = true;
-                    }
-                    else if (name == "clearStage4")
-                    {
-                        clearStage4 = true;
-                    }
-                }
-                
-            }
         }
         else
         {
