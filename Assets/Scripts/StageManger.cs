@@ -22,7 +22,7 @@ public class StageManger : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteAll(); //playerfebs √ ±‚»≠
             if (!PlayerPrefs.HasKey("maxStage"))
             {                
                 PlayerPrefs.SetInt("maxStage", -1);
