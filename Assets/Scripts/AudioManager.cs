@@ -9,7 +9,6 @@ public class AudioManager : MonoBehaviour
     StageManger stageManger;
     AudioSource audioSource;
     public AudioClip clip;
-    public AudioClip clip2;
 
     private void Awake()
     {
@@ -30,21 +29,5 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = this.clip;
         audioSource.Play();
-    }
-    private void Update()
-    {
-        if(stageManger.maxStage >= 3)
-        {
-            if (stageManger.clearStage4 == true)
-            {
-                audioSource = GetComponent<AudioSource>();
-                audioSource.clip = this.clip2;
-                audioSource.Play();
-            }
-        }
-        else
-        {
-            return;
-        }
-    }
+    }    
 }
