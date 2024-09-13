@@ -15,6 +15,7 @@ public class RetryButton : MonoBehaviour
     }
     public void StageScene()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("RoundChoiceScene");
     }
 
@@ -62,7 +63,7 @@ public class RetryButton : MonoBehaviour
             {
                 stageManger.GetComponent<StageManger>().maxStage = 4;
             }
-        }
+        }        
         SceneManager.LoadScene("MainScene");
     }
 }
